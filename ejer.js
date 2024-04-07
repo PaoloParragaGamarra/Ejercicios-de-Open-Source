@@ -33,8 +33,49 @@ function encontrar(N3) {
         vector.push(Number(userInput));
     }
     for (var i = 0; i < N3; i++) {
-        console.log("i[" + i + "] ->  " + vector[i]);
+        //Segundo numero mas grande del arreglo
+        if (vector[i] == vector[1]) {
+            console.log("El segundo numero mas grande del arreglo es " + vector[i]);
+        }
     }
 }
 var limit = prompt("Ingrese un limite");
 encontrar(Number(limit));
+console.log("Ejercicio 4");
+var N4;
+var ciudad = [];
+var poblacion = [];
+function ciudadPoblacionMayor(N4) {
+    for (var i = 0; i < N4; i++) {
+        var userInput = prompt("Ingrese el nombre de la ciudad");
+        ciudad.push(String(userInput));
+        var userInput2 = prompt("Ingrese la poblacion de la ciudad");
+        poblacion.push(Number(userInput2));
+    }
+    var mayor = 0;
+    var ciudadMayor = "";
+    for (var i = 0; i < N4; i++) {
+        if (poblacion[i] > mayor) {
+            mayor = poblacion[i];
+            ciudadMayor = ciudad[i];
+        }
+    }
+    console.log("La ciudad con mayor poblacion es " + ciudadMayor + " con " + mayor + " habitantes");
+}
+var limit2 = prompt("Ingrese la cantidad de ciudades");
+ciudadPoblacionMayor(Number(limit2));
+console.log("Ejercicio 5");
+var N5;
+var listNum = [];
+function numPrimos(N5) {
+    for (var i = 1; i <= N5; i++) {
+        var numeros = prompt("Ingrese un numero");
+        listNum.push(Number(numeros));
+    }
+    for (var i = 1; i <= N5; i++) {
+        if (listNum[i] % listNum[i] == 0 && listNum[i] % 1 == 0) {
+            console.log("El numero " + listNum[i] + " es primo");
+        }
+    }
+}
+numPrimos(Number(prompt("Ingrese la cantidad de numeros")));
