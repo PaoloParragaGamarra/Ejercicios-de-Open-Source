@@ -68,14 +68,81 @@ console.log("Ejercicio 5");
 var N5;
 var listNum = [];
 function numPrimos(N5) {
-    for (var i = 1; i <= N5; i++) {
-        var numeros = prompt("Ingrese un numero");
-        listNum.push(Number(numeros));
+    for (var i = 0; i < N5; i++) {
+        var numeros_1 = prompt("Ingrese un numero");
+        listNum.push(Number(numeros_1));
     }
-    for (var i = 1; i <= N5; i++) {
-        if (listNum[i] % listNum[i] == 0 && listNum[i] % 1 == 0) {
+    for (var i = 0; i < N5; i++) {
+        var isPrime = true;
+        for (var j = 2; j < listNum[i]; j++) {
+            if (listNum[i] % j === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
             console.log("El numero " + listNum[i] + " es primo");
         }
     }
 }
 numPrimos(Number(prompt("Ingrese la cantidad de numeros")));
+console.log("Ejercicio 6");
+var horaEmpleados = [];
+var tarifas = [];
+function sueldoTotalEmpleado(N) {
+    for (var i = 0; i < N; i++) {
+        var horas = prompt("Ingrese las horas trabajadas para el empleado " + (i + 1));
+        horaEmpleados.push(Number(horas));
+        var tarifa = prompt("Ingrese la tarifa por hora");
+        tarifas.push(Number(tarifa));
+    }
+    var sueldoTotal = 0;
+    for (var i = 0; i < N; i++) {
+        sueldoTotal = horaEmpleados[i] * tarifas[i];
+        console.log("El sueldo total del empleado " + (i + 1) + " es " + sueldoTotal);
+    }
+}
+sueldoTotalEmpleado(Number(prompt("Ingrese la cantidad de empleados")));
+console.log("Ejercicio 7");
+var numeros = [];
+function ordenAscendente(N) {
+    for (var i = 0; i < N; i++) {
+        var num = prompt("Ingrese un numero");
+        numeros.push(Number(num));
+    }
+    numeros.sort();
+    console.log("El arreglo ordenado de forma ascendente es " + numeros);
+}
+ordenAscendente(Number(prompt("Ingrese la cantidad de edades a ingresar")));
+console.log("Ejercicio 8");
+var arbolesAltura = [];
+function promedioAltura(N) {
+    var suma = 0;
+    var promedio = 0;
+    for (var i = 0; i < N; i++) {
+        arbolesAltura.push(Number(prompt("Ingrese la altura del arbol " + (i + 1))));
+        suma += arbolesAltura[i];
+    }
+    promedio = suma / N;
+    for (var i = 0; i < N; i++) {
+        if (arbolesAltura[i] > promedio) {
+            console.log("El arbol " + (i + 1) + " tiene una altura mayor al promedio");
+        }
+    }
+}
+promedioAltura(Number(prompt("Ingrese la cantidad de arboles")));
+console.log("Ejercicio 9");
+var vector2 = [];
+function desplazamiento(N) {
+    for (var i = 0; i < N; i++) {
+        vector2.push(Number(prompt("Ingrese un numero")));
+    }
+    var aux = vector2[N - 1];
+    for (var i = N - 1; i > 0; i--) {
+        vector2[i] = vector2[i - 1];
+    }
+    for (var i = 0; i < N - 1; i++) {
+        console.log(vector2[i]);
+    }
+}
+desplazamiento(Number(prompt("Ingrese la cantidad de elementos del vector")));
